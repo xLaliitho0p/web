@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NatZa - Enlaces</title>
+    <style>
+        :root {
+            --bg-color-light: #f9f9f9;
+            --text-color-light: #333;
+            --link-bg-light: #007BFF;
+            --link-hover-light: #0056b3;
+
+            --bg-color-dark: #121212;
+            --text-color-dark: #f4f4f4;
+            --link-bg-dark: #1e90ff;
+            --link-hover-dark: #4682b4;
+
+            --instagram-color: #E1306C;
+            --facebook-color: #1877F2;
+            --whatsapp-color: #25D366;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Futura', sans-serif;
+            background-color: var(--bg-color-light);
+            color: var(--text-color-light);
+            text-align: center;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 30px;
+        }
+
+        header img {
+            max-width: 300px;
+        }
+
+        .switch-container {
+            margin: 20px auto;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        .link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px auto;
+            padding: 15px 20px;
+            width: 80%;
+            max-width: 250px;
+            text-decoration: none;
+            color: white;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .link img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .link.instagram {
+            background-color: var(--instagram-color);
+        }
+
+        .link.facebook {
+            background-color: var(--facebook-color);
+        }
+
+        .link.whatsapp {
+            background-color: var(--whatsapp-color);
+        }
+
+        .link:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .link:active {
+            animation: explode 0.5s forwards;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(0);
+                opacity: 0;
+            }
+        }
+
+        .dark-mode {
+            background-color: var(--bg-color-dark);
+            color: var(--text-color-dark);
+        }
+
+        .switch {
+            display: inline-block;
+        }
+
+        .switch input {
+            display: none;
+        }
+
+        .slider {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 25px;
+            background-color: #ccc;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .slider:before {
+            content: '';
+            position: absolute;
+            width: 23px;
+            height: 23px;
+            border-radius: 50%;
+            background-color: white;
+            top: 1px;
+            left: 1px;
+            transition: transform 0.3s;
+        }
+
+        input:checked + .slider {
+            background-color: #6b93bf;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(25px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img id="logo" src="Logo_Negro_PNG.png" alt="Logo de NatZa">
+
+            <div class="switch-container">
+                <label class="switch">
+                    <input type="checkbox" id="darkModeToggle">
+                    <span class="slider"></span> 
+                </label>
+            </div>
+
+            <h1>𝑵𝑨𝑻𝒁𝑨 - 𝑪𝑶𝑵𝑻𝑨𝑪𝑻𝑨𝑵𝑶𝑺</h1>
+        </header>
+
+        <a href="https://www.instagram.com/natza_23/" target="_blank" class="link instagram">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram Logo">
+            Instagram
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61571516139217" target="_blank" class="link facebook">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook Logo">
+            Facebook
+        </a>
+        <a href="https://wa.me/3111928924" target="_blank" class="link whatsapp">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp Logo">
+            WhatsApp
+        </a>
+    </div>
+
+    <script>
+        const toggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        const logo = document.getElementById('logo');
+
+        toggle.addEventListener('change', () => {
+            body.classList.toggle('dark-mode', toggle.checked);
+            logo.src = toggle.checked ? 'Logo_blanco_PNG.png' : 'Logo_Negro_PNG.png';
+        });
+    </script>
+</body>
+</html>
